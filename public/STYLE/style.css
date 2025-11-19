@@ -1,0 +1,714 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh ;
+}
+.container{
+    flex: 1;
+}
+.navbar{
+    height: 5rem;
+}
+
+.navbar-brand{
+  padding-left: 0.5rem;
+  padding-top: 0.4rem;
+}
+.navbar-brand i{
+  color: #fe424d;
+  font-size: 1.7rem;
+}
+.navbar-brand p{
+  color: #fe424d;
+  font-size: 0.7rem;
+}
+
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222;
+}
+
+.search-container .btn-search:hover {
+  background-color: #fe424d;
+  color: #fff;
+}
+.search-container .btn-search {
+  background-color: #fff;
+  border: 1px solid #fe424d;
+  color: #fe424d;
+  transition: 0.2s ease-in-out;
+  border-radius: 50px; /* 100px is fine, but 50px is usually sufficient */
+  padding: 0.4rem 1rem;
+}
+
+.navbar .search-container {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  flex-grow: 1;
+}
+.navbar .search-container form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px; /* optional, prevents it from being too wide on large screens */
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info-social,
+.f-info-links,
+.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.f-info-social i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+.btn.my-create {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+  border: 1px solid #dc3545 !important;
+  transition: all 0.3s ease;
+}
+
+.btn.my-create:hover {
+  background-color: #ffe3e3 !important;
+  color: #dc3545 !important;
+  border: 1px solid #dc3545 !important;
+}
+
+
+
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100%;
+    object-fit: cover !important;
+    height: 20rem;
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text{
+    font-weight: 400 !important;
+}
+.listing-link{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 1;
+    color: #ebebeb;
+}
+.delete{
+    display: inline-block;
+    margin-top: 0;
+}
+
+/* Carousel Filters */
+.filters {
+    display: flex;
+    gap: 15px;
+    justify-content: space-evenly; /* left align */
+    flex-wrap: nowrap; /* prevent wrapping */
+    overflow-x: auto;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+.filter {
+    flex: 0 0 auto; /* don't shrink */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: transform 0.2s, background-color 0.2s;
+    opacity: 0.7;
+}
+
+.filter i {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+} 
+
+.filter p {
+    margin: 0;
+}
+
+.filter:hover {
+    transform: scale(1.15);
+    opacity: 1;
+}
+.filter:active {
+    transform: scale(1.1);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); /* Pressed-in effect */
+}
+
+
+
+/* Hide scrollbar */
+.filters::-webkit-scrollbar {
+    display: none;
+}
+.filters {
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;      /* Firefox */
+}
+
+/* Carousel Buttons */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-size: 50% 50%; /* smaller arrow icon */
+}
+
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Card grid */
+.dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Make the whole card clickable */
+.dashboard-card-link {
+  text-decoration: none; /* removes underline */
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card-link:hover {
+  transform: translateY(-5px);
+}
+
+/* Card styling */
+.dashboard-card {
+  background-color: #fff;
+  border-radius: 16px;
+  width: 18rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Icon section */
+.dashboard-icon {
+  font-size: 2rem;
+  padding: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-icon.listings {
+  background-color: #ff5a5f; /* Airbnb coral */
+}
+
+.dashboard-icon.users {
+  background-color: #00a699; /* Airbnb teal */
+}
+
+.dashboard-icon.reviews {
+  background-color: #fc642d; /* Warm orange */
+}
+
+/* Text inside cards */
+.dashboard-card-body {
+  text-align: center;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #484848; /* Airbnb dark gray */
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #767676; /* Airbnb soft gray */
+  margin-top: 6px;
+  letter-spacing: 0.3px;
+}
+
+/* Remove blue link color on hover/focus */
+.dashboard-card-link:hover .card-title,
+.dashboard-card-link:hover .card-subtitle {
+  color: #222222;
+}
+
+/* Page container */
+.page-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* User cards grid */
+.user-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* Individual user card (non-clickable) */
+.user-card {
+  background-color: #fff;
+  width: 220px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.user-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #484848;
+  margin-bottom: 8px;
+}
+
+.user-email {
+  font-size: 1rem;
+  color: #767676;
+  margin-bottom: 6px;
+}
+
+.user-joined {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.no-users {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 50px;
+}
+
+
+.page-container { 
+    max-width: 1000px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+}
+
+.page-title { 
+    text-align: center; 
+    color: #333; 
+    margin-bottom: 30px; 
+}
+
+.review-cards-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); 
+    gap: 20px; 
+}
+.review-card { 
+    background: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    transition: transform 0.2s; 
+}
+.review-card:hover { 
+    transform: translateY(-5px); 
+}
+.review-card-body { 
+    padding: 20px; 
+}
+
+.review-user { 
+    color: #0077b6; 
+    margin-bottom: 5px; 
+}
+.review-user-email, .review-date { 
+    color: #555; 
+    font-size: 0.85rem; 
+}
+.review-comment { 
+    font-style: italic; margin: 
+    10px 0; color: #333;
+ }
+.review-rating { 
+    color: #ff7b00; 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+}
+.no-reviews { 
+    text-align: center; 
+    color: #555; 
+}
+
+/* Listing Cards Grid */
+
+/* Tablet screens (medium) */
+@media (max-width: 992px) {
+    .row {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    }
+}
+
+/* Mobile screens (small) */
+@media (max-width: 600px) {
+    .row {
+        grid-template-columns: 1fr; /* 1 card per row */
+    }
+}
+
+.listing-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    object-fit: cover;
+    width: 100%;
+    height: 20rem; /* fixed height for uniform cards */
+}
+
+.card-body {
+    padding: 15px;
+    text-align: left;
+}
+
+.card-text b {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.card-text {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* navbar */
+
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+.dropdown-menu {
+  position: relative;
+  top: 4rem;
+  right: 0rem;
+}
+
+.account-card {
+  display: none;
+  position: fixed;
+  top: 55px;
+  right: -50px; /* subtle left shift */
+  width: 280px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+  padding: 15px;
+}
+
+.account-card.show {
+  display: block;
+}
+
+.account-header img.big-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.account-card .dropdown-item {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+}
+
+.account-card .dropdown-item:hover {
+  background-color: #f7f7f7;
+}
+
+.btn-outline-danger {
+  font-size: 0.9rem;
+}
+
+/* style.css */
+
+.nav-item.dropdown {
+  position: relative; /* ensures dropdown is positioned relative to this */
+}
+
+#accountPopup {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  min-width: 250px;
+  padding: 1rem;
+}
+
+#accountPopup.show {
+  display: block;
+}
+
+
+/* signup.css */
+
+/* Only target elements inside .signup-page */
+.signup-page {
+    background: #f9f9f9;
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.signup-page .signup-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 450px;
+}
+
+.signup-page h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.signup-page .form-label {
+    font-weight: 500;
+    color: #555;
+}
+
+.signup-page .form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    transition: border-color 0.3s;
+}
+
+.signup-page .form-control:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 2px rgba(254, 66, 77, 0.2);
+}
+
+.signup-page .btn-primary {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    background-color: #fe424d;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.signup-page .btn-primary:hover {
+    background-color: #e33b45;
+}
+
+.signup-page p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.signup-page p a {
+    color: #fe424d;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-page p a:hover {
+    text-decoration: underline;
+}
+
+/* Common Listing Form Styles */
+.container-listing {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.container-listing h3 {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.container-listing .form-label {
+    font-weight: 500;
+    color: #343a40;
+}
+
+.container-listing .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+}
+
+.container-listing textarea.form-control {
+    resize: vertical;
+}
+
+.container-listing .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #fe424d; /* WanderLust red */
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.container-listing .btn:hover {
+    background-color: #ffffff; /* white background on hover */
+    border: 1px solid #fe424d; /* thin red border */
+    color: #fe424d; /* red text */
+}
+
+.container-listing .btn-group .btn {
+    background-color: transparent; /* transparent background */
+    color: #000; /* black text */
+    border: 1px solid #ced4da; /* light gray border */
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
+}
+
+.container-listing .btn-group .btn:hover {
+    background-color: #ffffff; /* white background on hover */
+    border: 1px solid #fe424d; /* thin red border */
+    color: #fe424d; /* text red on hover */
+}
+
+/* Map Style */
+#map { width: 100%; height: 500px; }

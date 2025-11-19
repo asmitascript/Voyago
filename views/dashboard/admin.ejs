@@ -1,0 +1,51 @@
+<%- layout("layouts/boilerplate") %>
+
+<body>
+  <div class="dashboard-container">
+    <h2 class="dashboard-title">Dashboard Overview</h2>
+
+    <div class="dashboard-cards">
+      <!-- Listings Card -->
+      <a href="/listings" class="dashboard-card-link">
+        <div class="dashboard-card">
+          <div class="dashboard-icon listings">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <div class="dashboard-card-body">
+            <h5 class="card-title"><%= listingCount %></h5>
+            <h6 class="card-subtitle">Homes Ready to Explore</h6>
+          </div>
+        </div>
+      </a>
+
+      <!-- Users Card -->
+      <a href="/admin/user" class="dashboard-card-link">
+        <div class="dashboard-card">
+          <div class="dashboard-icon users">
+            <i class="fa-solid fa-user-group"></i>
+          </div>
+          <div class="dashboard-card-body">
+            <h5 class="card-title"><%= userCount %></h5>
+            <h6 class="card-subtitle">Happy Travelers & Hosts</h6>
+          </div>
+        </div>
+      </a>
+
+      <!-- Reviews Card -->
+      <a href="/admin/allreviews" class="dashboard-card-link">
+        <div class="dashboard-card">
+          <div class="dashboard-icon reviews">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="dashboard-card-body">
+            <h5 class="card-title"><%= reviewCount %></h5>
+            <h6 class="card-subtitle">Stories Shared</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2e0e6d6cb.js" crossorigin="anonymous"></script>
+</body>

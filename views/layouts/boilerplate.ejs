@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyago</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/rating.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include("../includes/navbar.ejs") %>
+    <%- include("../includes/flash.ejs") %>
+    <div class="container">
+        <%- body %>
+    </div>
+    <%- include("../includes/footer.ejs") %>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ---------- 1️⃣ Filter click handling ----------
+  const filters = document.querySelectorAll('.filter');
+  filters.forEach(filter => {
+    filter.addEventListener('click', () => {
+      // Visual active state
+      filters.forEach(f => f.classList.remove('active'));
+      filter.classList.add('active');
+
+      // Get category and redirect
+      const category = filter.dataset.category;
+      window.location.href = `/listings?category=${encodeURIComponent(category)}`;
+    });
+  });
+
+  // ---------- 2️⃣ Dropdown category selection ----------
+  function selectCategory(cat) {
+    const btn = document.getElementById('categoryBtn');
+    const input = document.getElementById('categoryInput');
+    if (btn && input) {
+      btn.innerText = cat.charAt(0).toUpperCase() + cat.slice(1); // Update button text
+      input.value = cat; // Update hidden input
+    }
+  }
+  window.selectCategory = selectCategory; // Make globally accessible
+
+  // ---------- 3️⃣ Prefill button text on edit pages ----------
+  const btn = document.getElementById('categoryBtn');
+  const input = document.getElementById('categoryInput');
+  if (btn && input && input.value) {
+    btn.innerText = input.value.charAt(0).toUpperCase() + input.value.slice(1);
+  }
+});
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/@geoapify/geocoder-autocomplete@latest/dist/index.min.js"></script>
+</body>
+</html>

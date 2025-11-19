@@ -1,0 +1,29 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="signup-page">
+    <div class="signup-container">
+        <h3>Log In to WanderLust</h3>
+
+        <form action="/login" method="post" class="needs-validation" novalidate>
+            <!-- Username -->
+            <div class="form-group mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter username" class="form-control" required>
+                <div class="valid-feedback">Looks Good!</div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter password" class="form-control" required>
+                <div class="valid-feedback">Looks Good!</div>
+            </div>
+
+            <!-- Register link -->
+            <p><small>Not a registered user? </small><a href="/signup">Register</a></p>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary mt-2">Log In</button>
+        </form>
+    </div>
+</div>

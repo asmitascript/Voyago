@@ -1,0 +1,41 @@
+<%- layout("layouts/boilerplate") %>
+<link rel="stylesheet" href="/style/allreviews.js">
+
+<body>
+  <div class="page-container">
+    <h2 class="page-title">All Reviews</h2>
+
+    <div class="review-cards-container">
+      <% if (reviews.length > 0) { %>
+        <% reviews.forEach(review => { %>
+          <div class="review-card">
+            <div class="review-card-body">
+              <h4 class="review-user">User: <%= review.author ? review.author.username : "Unknown" %></h4>
+
+              <p>
+                Review on Listing:
+                <% if (review.listing) { %>
+                  <a href="/listings/<%= review.listing._id %>" class="listing-link">
+                    <%= review.listing.title %>
+                  </a>
+                <% } else { %>
+                  N/A
+                <% } %>
+              </p>
+
+              <p class="review-user-email">Email: <%= review.author ? review.author.email : "N/A" %></p>
+              <p class="review-comment">"<%= review.comment %>"</p>
+              <p class="review-rating">Rating: <%= review.rating %> / 5</p>
+              <small class="review-date">Reviewed on: <%= review.createdAt.toDateString() %></small>
+              <form method="POST" action="/listings/<%= review.listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="no-reviews">No reviews found.</p>
+      <% } %>
+    </div>
+  </div>
+</body>

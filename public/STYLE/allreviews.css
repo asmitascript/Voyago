@@ -1,0 +1,15 @@
+.review-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .review-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .review-card:hover { transform: translateY(-5px); }
+  .listing-link { color: #0077b6; text-decoration: none; }
+  .listing-link:hover { text-decoration: underline; }

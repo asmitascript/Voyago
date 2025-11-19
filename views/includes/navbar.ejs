@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="/style/style.css">
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top shadow-sm">
+  <div class="container-fluid" style="justify-content: space-evenly;">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-solid fa-earth-asia"></i>
+      <p>Voyago</p>
+    </a>
+
+    <div class="navbar-nav search-container" style="align-items: center;">
+      <form class="form-inline d-flex w-50" action="/listings" method="GET">
+        <input 
+          class="form-control me-2" 
+          type="search" 
+          name="q" 
+          placeholder="Search listings..." 
+          aria-label="Search"
+          value="<%= typeof query !== 'undefined' ? query : '' %>"
+        >
+        <button class="btn btn-search" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </div>
+
+
+    <div class="d-flex align-items-center">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+        <li class="nav-item me-3 d-none d-sm-block">
+          <a class="nav-link" href="/listings/new">Showcase Yours</a>
+        </li>
+
+      </ul>
+
+      <!-- Right side (Auth/Profile section) -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex flex-row align-items-center">
+        <% if(!currUser) { %>
+          <li class="nav-item me-3 d-none d-md-block">
+            <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link" href="/login"><b>Log In</b></a>
+          </li>
+        <% } %>
+
+        <% if(currUser) { %>
+          <li class="nav-item dropdown">
+            <a class="nav-link d-flex align-items-center" href="#" id="profileMenu" role="button">
+              <img src="https://i.pravatar.cc/40?img=12" alt="Profile" class="rounded-circle" width="36" height="36">
+            </a>
+
+            <div class="dropdown-menu" id="accountPopup">
+              <div class="text-center mb-3">
+                <img src="https://i.pravatar.cc/100?img=12" alt="User Avatar" class="rounded-circle mb-2" width="70" height="70">
+                <h6 class="mb-0"><%= currUser.username %></h6>
+                <small class="text-muted"><%= currUser.email %></small>
+              </div>
+              <hr>
+              <% if(currUser.role === 'admin') { %>
+                <ul class="list-unstyled mb-2">
+                  <li><a class="dropdown-item" href="/admin">View Dashboard</a></li>
+                  <li><a class="dropdown-item" href="/admin/allreviews">Manage All Reviews</a></li>
+                  <li><a class="dropdown-item" href="/admin/user">Manage All Users</a></li>
+                  <li><a class="dropdown-item" href="/listings/user">Manage Your Listings</a></li>
+                </ul>
+              <% } else { %>
+                <ul class="list-unstyled mb-2">
+                  <li><a class="dropdown-item" href="/listings/user">Manage Your Listings</a></li>
+                  <li><a class="dropdown-item" href="/listings/new">Showcase Yours</a></li>
+                </ul>
+              <% } %>
+              <hr>
+              <a href="/logout" class="btn btn-outline-danger w-100">Log Out</a>
+            </div>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const profileMenu = document.getElementById('profileMenu');
+    const accountPopup = document.getElementById('accountPopup');
+
+    if (profileMenu) {
+      profileMenu.addEventListener('click', (e) => {
+        e.preventDefault();
+        accountPopup.classList.toggle('show');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!profileMenu.contains(e.target) && !accountPopup.contains(e.target)) {
+          accountPopup.classList.remove('show');
+        }
+      });
+    }
+  });
+</script>
